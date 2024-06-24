@@ -27,6 +27,21 @@ in
   #PROSODY SERVER
   services.prosody = {
     enable = true;
+    admins = [ "root@rubberroomwithrats.com" ];
+    ssl.cert = "/var/lib/acme/rubberroomwithrats.com/fullchain.pem";
+    ssl.key = "/var/lib/acme/rubberroomwithrats.com/key.pem";
+    virtualHosts."rubberroomwithrats.com" = {
+        enabled = true;
+        domain = "xmpp.rubberroomwithrats.com";
+        ssl.cert = "/var/lib/acme/rubberroomwithrats.com/fullchain.pem";
+        ssl.key = "/var/lib/acme/rubberroomwithrats.com/key.pem";
+    };
+    muc = [ {
+        domain = "conference.rubberroomwithrats.com";
+    } ];
+    uploadHttp = {
+        domain = "upload.rubberroomwithrats.com";
+    };
   };
 
   #NGINX
