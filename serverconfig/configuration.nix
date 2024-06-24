@@ -1,4 +1,4 @@
-{ ... }: 
+{ config, lib, pkgs, ... }: 
 let
   domain = "rubberroomwithrats.com";
 in
