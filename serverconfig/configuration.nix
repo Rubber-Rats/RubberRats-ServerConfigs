@@ -57,6 +57,19 @@
 
   # Enable flakes
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
+
+  system.autoUpgrade = {
+    enable = true;
+    flake = "github:Rubber-Rats/RubberRats-ServerConfigs";
+    flags = [
+      "--update-input"
+      "nixpkgs"
+      "--no-write-lock-file"
+      "-L" # print build logs
+    ];
+    dates = "02:00";
+    randomizedDelaySec = "45min";
+  };
  
   system.stateVersion = "23.11";
 }
