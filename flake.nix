@@ -1,8 +1,12 @@
 {
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    colmena = {
+      url = "github:zhaofengli/colmena";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
-  outputs = { self, nixpkgs }: {
+  outputs = { self, nixpkgs, colmena}: {
     colmena = {
       meta = {
         nixpkgs = import nixpkgs {
@@ -18,8 +22,7 @@
             targetUser = "root";
           };
 
-              
-          modules = [ 
+          imports = [ 
             ./serverconfig/configuration.nix 
           ];
       };
