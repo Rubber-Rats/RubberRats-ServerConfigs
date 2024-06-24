@@ -28,9 +28,9 @@ in
   services.prosody = {
     enable = true;
     admins = [ "root@${domain}" ];
-    virtualHosts."${domain}" = {
+    virtualHosts."xmpp.${domain}" = {
         enabled = true;
-        domain = "${domain}";
+        domain = "xmpp.${domain}";
         ssl.cert = "/var/lib/acme/${domain}/fullchain.pem";
         ssl.key = "/var/lib/acme/${domain}/key.pem";
     };
