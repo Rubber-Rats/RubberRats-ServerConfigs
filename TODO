@@ -1,0 +1,13 @@
+MAIL:
+  -Make a mail server
+
+XMPP:
+  -Make XMPP server
+  -Set up voice
+
+IRC:
+  -I mean, if you want?
+
+GENERAL:
+  -hope ssl fixes itself I guess I'll just kill myself if not
+  -find a way to not regen ssl on config reload
