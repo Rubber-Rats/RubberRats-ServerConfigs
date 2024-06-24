@@ -21,6 +21,7 @@ in
   users.users.root.openssh.authorizedKeys.keys = [
     ''ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFecTaDusQuqN5tWYitmFMqZEbBMeZA8SWLKOtlLE5tI psychopathy@psychopathy-desktop''
     ''ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIL5432hWcdfQX8icuV1W4xV63NB9uQ4yUaJztTXX5qdT''
+    ''ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIO7xcEB5j+xum/mQ/KEfhF9QS09zHmU6klrcEAdc5fj+ psychopathy@phone''
   ];
 
 
