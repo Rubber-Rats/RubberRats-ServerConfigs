@@ -47,35 +47,39 @@ in
   #NGINX
   services.nginx = {
     enable = true;
-   #Recomended settings
+    group = config.services.prosody.group;
+    #Recomended settings
     recommendedGzipSettings = true;
     recommendedOptimisation = true;
     recommendedProxySettings = true;
     recommendedTlsSettings = true;
     
-    virtualHosts."domain" = {
-
-      root = "/var/www/www.rubberroomwithrats.com";
-
-    };
+    virtualHosts."${domain}" = {
+        forceSSL = true;
+        enableACME = true;
+        serverAliases = [ "upload.${domain}" "conference.${domain}" "xmpp.${domain}" "www.${domain}"];
+        locations."/" = {
+          root = "/var/www/rubberroomwithrats.com";
+        };
+      };
   };
  
   # acme setup
   security.acme = {
     email = "root@rubberroomwithrats.com";
     acceptTerms = true;
-    certs = {
-      "rubberroomwithrats.com" = {
-       webroot = "/var/www/www.rubberroomwithrats.com";
-       email = "root@rubberroomwithrats.com";
-       extraDomainNames = [ 
-        "xmpp.rubberroomwithrats.com" 
-        "conference.rubberroomwithrats.com" 
-        "upload.rubberroomwithrats.com" 
-        "www.rubberroomwithrats.com" 
-       ];
-      };
-    };
+    # certs = {
+    #   "rubberroomwithrats.com" = {
+    #    webroot = "/var/www/www.rubberroomwithrats.com";
+    #    email = "root@rubberroomwithrats.com";
+    #    extraDomainNames = [ 
+    #     "xmpp.rubberroomwithrats.com" 
+    #     "conference.rubberroomwithrats.com" 
+    #     "upload.rubberroomwithrats.com" 
+    #     "www.rubberroomwithrats.com" 
+    #    ];
+    #   };
+    # };
   };
 
   # Enable flakes
