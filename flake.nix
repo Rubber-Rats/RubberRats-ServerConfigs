@@ -17,7 +17,7 @@
 
       rubberrats = {
         deployment = {
-          targetHost = "rubberroomwithrats.com";
+          targetHost = "51.81.35.2";
             targetPort = 22;
             targetUser = "root";
           };
