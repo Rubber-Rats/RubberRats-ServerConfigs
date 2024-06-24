@@ -3,12 +3,26 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
   };
   outputs = { self, nixpkgs }: {
-    # replace 'joes-desktop' with your hostname here.
-    nixosConfigurations."www" = nixpkgs.lib.nixosSystem {
-      system = "x86_64-linux";
-      modules = [ 
-        ./serverconfig/configuration.nix 
-      ];
+    colmena = {
+      meta = {
+        nixpkgs = import nixpkgs {
+          system = "x86_64-linux";
+          overlays = [];
+        };
+      };
+
+      rubberrats = {
+        deployment = {
+          targetHost = "rubberroomwithrats.com";
+            targetPort = 22;
+            targetUser = "root";
+          };
+
+              
+          modules = [ 
+            ./serverconfig/configuration.nix 
+          ];
+      };
     };
   };
 }

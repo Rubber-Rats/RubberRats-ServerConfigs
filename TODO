@@ -11,3 +11,6 @@ IRC:
 GENERAL:
   -hope ssl fixes itself I guess I'll just kill myself if not
   -find a way to not regen ssl on config reload
+  -add hardened profile 
+  -disable password login for ssh
+  -auto fetch ssh keys from our github profile

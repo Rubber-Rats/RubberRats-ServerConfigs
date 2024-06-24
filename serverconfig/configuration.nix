@@ -1,12 +1,17 @@
-{ ... }: {
+{ ... }: 
+let
+  domain = "rubberroomwithrats.com";
+in
+{
   imports = [
     ./hardware-configuration.nix
+    # TODO enable hardened profile
   ];
 
   boot.tmp.cleanOnBoot = true;
   zramSwap.enable = true;
   networking.hostName = "www";
-  networking.domain = "rubberroomwithrats.com";
+  networking.domain = domain;
 
   networking.firewall.enable = false;
 
@@ -20,6 +25,9 @@
 
 
   #PROSODY SERVER
+  services.prosody = {
+    enable = true;
+  };
 
   #NGINX
   services.nginx = {
@@ -30,7 +38,7 @@
     recommendedProxySettings = true;
     recommendedTlsSettings = true;
     
-    virtualHosts."localhost" = {
+    virtualHosts."domain" = {
 
       root = "/var/www/www.rubberroomwithrats.com";
 
