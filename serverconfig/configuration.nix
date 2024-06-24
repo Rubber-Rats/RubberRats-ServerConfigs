@@ -27,20 +27,18 @@ in
   #PROSODY SERVER
   services.prosody = {
     enable = true;
-    admins = [ "root@rubberroomwithrats.com" ];
-    ssl.cert = "/var/lib/acme/rubberroomwithrats.com/fullchain.pem";
-    ssl.key = "/var/lib/acme/rubberroomwithrats.com/key.pem";
-    virtualHosts."rubberroomwithrats.com" = {
+    admins = [ "root@${domain}" ];
+    virtualHosts."${domain}" = {
         enabled = true;
-        domain = "xmpp.rubberroomwithrats.com";
-        ssl.cert = "/var/lib/acme/rubberroomwithrats.com/fullchain.pem";
-        ssl.key = "/var/lib/acme/rubberroomwithrats.com/key.pem";
+        domain = "${domain}";
+        ssl.cert = "/var/lib/acme/${domain}/fullchain.pem";
+        ssl.key = "/var/lib/acme/${domain}/key.pem";
     };
     muc = [ {
-        domain = "conference.rubberroomwithrats.com";
+        domain = "conference.${domain}";
     } ];
     uploadHttp = {
-        domain = "upload.rubberroomwithrats.com";
+        domain = "upload.${domain}";
     };
   };
 
@@ -59,14 +57,14 @@ in
         enableACME = true;
         serverAliases = [ "upload.${domain}" "conference.${domain}" "xmpp.${domain}" "www.${domain}"];
         locations."/" = {
-          root = "/var/www/rubberroomwithrats.com";
+          root = "/var/www/${domain}";
         };
       };
   };
  
   # acme setup
   security.acme = {
-    email = "root@rubberroomwithrats.com";
+    email = "root@${domain}";
     acceptTerms = true;
     # certs = {
     #   "rubberroomwithrats.com" = {
