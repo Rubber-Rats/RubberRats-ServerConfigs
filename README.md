@@ -26,7 +26,7 @@ Rebuild the server with this command while logged in via ssh:
 sudo nixos-rebuild switch
 ```
 
-# How do I remote deploy this form a nixos machine?
+# How do I remote deploy this from a nixos machine?
 
 ```sh
 nix-shell -p colmena
