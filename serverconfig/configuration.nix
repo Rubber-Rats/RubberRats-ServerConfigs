@@ -22,7 +22,7 @@ in
   users.users.root.openssh.authorizedKeys.keys = [
 	# psychopathy@nixos
 	''ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJRWdABQs9syII/zeGF/+OxDxeAoEWJAZmC7sZx+Xq3C psychopathy@nixos''
-	''ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIL/Bf5za5nomT+o4VL6qP0jk4uwKuBeZDlHUv456QPqa JuiceSSH''
+	''ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJ4GDpHEBs3WoCv/o3+xXhXiOD/3VjQXhTx4RjVS/woE JuiceSSH''
   # mutablefigment@nixos
 	''ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIALgZwOAX8Jn1YKDOHQ8fZbz+Iwb7KhwKpL1hbMChzaS''
         ''ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIH/W2zkTZRQwLP/wkC5kg+Us3yfpraj/XRNCgGfSBx0a''
@@ -44,6 +44,8 @@ users.users.nix = {
     # Assign the same SSH keys to the 'nix' user
     openssh.authorizedKeys.keys = [
       ''ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJRWdABQs9syII/zeGF/+OxDxeAoEWJAZmC7sZx+Xq3C psychopathy@nixos''
+      	''ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJ4GDpHEBs3WoCv/o3+xXhXiOD/3VjQXhTx4RjVS/woE JuiceSSH''
+
       ''ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIALgZwOAX8Jn1YKDOHQ8fZbz+Iwb7KhwKpL1hbMChzaS''
       ''ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIH/W2zkTZRQwLP/wkC5kg+Us3yfpraj/XRNCgGfSBx0a''
       ''ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIIOU+iWnGXqMpNj5wZOXN7/IpEz7Cavarzs2rM7RS/aq''
