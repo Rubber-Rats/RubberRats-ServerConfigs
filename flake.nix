@@ -15,7 +15,7 @@
         };
       };
 
-      rubberrats = {
+      rubberroomwithrats = {
         deployment = {
           targetHost = "51.81.35.2";
             targetPort = 22;
